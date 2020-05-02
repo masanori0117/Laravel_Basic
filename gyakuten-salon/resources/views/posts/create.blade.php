@@ -11,12 +11,19 @@
                     
                     <div class="form-group">
                         <label for="title">タイトル</label>
-                        <input type="text" class="form-control" id="title" name="title">
+                        <input type="text" class="form-control" id="title" name="title" value="{{ old('title') }}">
+                        <div class="text-danger">
+                            {{ $errors->first('title') }}
+                        </div>
+                        
                     </div>
                     
                     <div>
                         <label for="body">本文</label>
-                        <textarea id="body" class="form-control" name="body" rows="4" ></textarea>
+                        <textarea id="body" class="form-control" name="body" rows="4" >{{ old('body') }}</textarea>
+                        <div class="text-danger">
+                            {{ $errors->first('body') }}
+                        </div>
                     </div>
                     
                     <div class="mt-5">

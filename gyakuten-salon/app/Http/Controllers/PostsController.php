@@ -8,9 +8,8 @@ use App\Post;
 class PostsController extends Controller
 {
     public function index(){
-        
-        $posts = Post::orderBy('created_at','desc')->get();
-        return view('posts.index', ['posts'=>$posts]); 
+        $posts = Post::orderBy('created_at','desc')->paginate(5);
+        return view('posts.index',['posts'=>$posts]);
     }
     
     public function create(){
